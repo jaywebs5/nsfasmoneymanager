@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+    content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Reminders & Alerts
+    </title>
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+    href="Reminders_Alerts.css">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+
+<body>
+
+  
+
+    </div>
+
+    <!-- PARTICLES -->
+    <div class="bg-particles">
+
+        <div class="particle"
+        style="width:8px;height:8px;top:10%;left:20%;animation-delay:0s;"></div>
+
+        <div class="particle"
+        style="width:12px;height:12px;top:30%;left:70%;animation-delay:2s;"></div>
+
+        <div class="particle"
+        style="width:6px;height:6px;top:60%;left:40%;animation-delay:4s;"></div>
+
+        <div class="particle"
+        style="width:10px;height:10px;top:80%;left:15%;animation-delay:1s;"></div>
+
+    </div>
+
+    <div class="container">
+
+        <!-- NAVBAR -->
+        <nav class="navbar">
+
+            <div class="logo-area">
+
+                <div class="logo-icon">
+
+                    <i class="fas fa-coins"></i>
+
+                </div>
+
+                <div class="logo-text">
+
+                    <h1>
+                        NSFAS Money Manager
+                    </h1>
+
+                    <p>
+                        smart allowance • future ready
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="nav-links">
+
+                <a href="dashboard.html">
+                    Dashboard
+                </a>
+
+                <a href="Expense_Tracker.html">
+                    Expense Tracker
+                </a>
+
+                <a href="Budget_Planner.html">
+                    Budget Planner
+                </a>
+
+                <a href="Reminders_or_Alerts.html">
+                    Reminders
+                </a>
+
+                <a href="Report_Chart.html">
+                    Reports
+                </a>
+
+                <!-- STUDENT BUTTON -->
+                <button class="profile-btn"
+                onclick="openProfile()">
+
+                    <i class="fas fa-user-graduate"></i>
+
+                </button>
+
+            </div>
+
+        </nav>
+
+        <!-- STUDENT MODAL -->
+        <div id="profileModal"
+        class="modal">
+
+            <div class="modal-content">
+
+                <span class="close-btn"
+                onclick="closeProfile()">
+
+                    &times;
+
+                </span>
+
+                <div class="profile-header">
+
+                    <div class="profile-avatar">
+
+                        <i class="fas fa-user-graduate"></i>
+
+                    </div>
+
+                    <h2>
+                        Student Information
+                    </h2>
+
+                </div>
+
+                <div class="profile-body">
+
+                    <p>
+                        <strong>Name:</strong>
+                        <span id="studentName">
+                            Mulisa Student
+                        </span>
+                    </p>
+
+                    <p>
+                        <strong>Student Number:</strong>
+                        <span id="studentNumber">
+                            NSFAS-2026-001
+                        </span>
+                    </p>
+
+                    <p>
+                        <strong>Allowance:</strong>
+                        <span id="studentAllowance">
+                            R3500
+                        </span>
+                    </p>
+
+                    <p>
+                        <strong>Savings:</strong>
+                        <span id="studentSavings">
+                            R1700
+                        </span>
+                    </p>
+
+                    <p>
+                        <strong>Status:</strong>
+
+                        <span class="status">
+
+                            Active
+
+                        </span>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- PAGE TITLE -->
+        <header>
+
+            <h1>
+                Reminders & Alerts
+            </h1>
+
+            <p>
+                Manage your important academic and financial reminders.
+            </p>
+
+        </header>
+
+        <!-- MAIN -->
+        <main>
+
+            <!-- CALENDAR -->
+            <section class="card">
+
+                <h2>
+                    📅 Calendar
+                </h2>
+                <div class="calendar-header">
+
+    <button id="prevBtn">
+
+        ◀
+
+    </button>
+
+    <h2 id="monthYear"></h2>
+
+    <button id="nextBtn">
+
+        ▶
+
+    </button>
+
+</div>
+
+<div class="calendar-days"
+id="calendarDays">
+
+</div>
+
+
+            </section>
+
+            <!-- REMINDER SECTION -->
+<section class="card">
+
+    <h2>
+        ➕ Add Reminder
+    </h2>
+
+    <input type="text"
+    id="reminderText"
+    placeholder="Reminder Title">
+
+    <input type="date"
+    id="reminderDate">
+
+    <!-- TYPE -->
+    <select id="reminderType">
+
+        <option value="warning">
+
+            ⚠ Warning
+
+        </option>
+
+        <option value="important">
+
+            🔴 Important
+
+        </option>
+
+        <option value="info">
+
+            🔵 Information
+
+        </option>
+
+        <option value="success">
+
+            ✅ Completed
+
+        </option>
+
+    </select>
+
+    <button id="addBtn">
+
+        Add Reminder
+
+    </button>
+
+</section>
+
+            <!-- UPCOMING -->
+            <section class="card">
+
+                <h2>
+                    ⏰ Upcoming Reminders
+                </h2>
+
+                <ul id="upcomingList"></ul>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- JS -->
+    <script src="storage.js"></script>
+    <script src="Reminders_Alerts.js"></script>
+
+</body>
+
+</html>
