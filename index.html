@@ -1142,8 +1142,30 @@
             display: none;
             background: var(--gray-50);
             min-height: 100vh;
+            /* ============================================
+               DASHBOARD BACKGROUND IMAGE UPDATE
+               Applied to .app-content, covers entire app area
+               ============================================ */
+            background-image: url('https://i.postimg.cc/ydF7HNQk/IMG-20260802-WA0042-1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
         }
         .app-content.active { display: block; }
+
+        /* semi-transparent overlay for readability */
+        .app-content .container {
+            background: rgba(255, 255, 255, 0.75);
+            backdrop-filter: blur(4px);
+            padding: 20px 24px;
+            border-radius: var(--radius);
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        body.dark-mode .app-content .container {
+            background: rgba(15, 23, 42, 0.8);
+        }
 
         /* ============================================
            APP NAVBAR - LARGER LOGO
@@ -1166,6 +1188,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background: transparent !important;
+            backdrop-filter: none !important;
+            padding: 0 24px !important;
+            margin-top: 0 !important;
+            margin-bottom: 0 !important;
+            border-radius: 0 !important;
         }
         .app-navbar .logo {
             display: flex;
@@ -2171,6 +2199,7 @@
             .team-grid { grid-template-columns: repeat(2, 1fr); }
             .wallet-section { grid-template-columns: 1fr 1fr; }
             .splitter-grid { grid-template-columns: 1fr; }
+            .app-content .container { padding: 16px; }
         }
 
         @media (max-width: 768px) {
@@ -2203,6 +2232,7 @@
             .landing-nav .logo .logo-icon { width: 45px; height: 45px; }
             .app-navbar .logo .logo-icon { width: 40px; height: 40px; }
             .profile-card .profile-avatar { width: 100px; height: 100px; font-size: 38px; }
+            .app-content .container { padding: 12px; }
         }
 
         @media (max-width: 480px) {
@@ -2223,6 +2253,7 @@
             .app-navbar .logo .logo-icon { width: 36px; height: 36px; font-size: 16px; }
             .profile-card .profile-avatar { width: 80px; height: 80px; font-size: 32px; }
             .site-footer .footer-grid .logo .logo-icon { width: 38px; height: 38px; }
+            .app-content .container { padding: 8px; }
         }
 
         /* ============================================
@@ -2236,6 +2267,7 @@
             .page-section { display: block !important; }
             .card, .chart-container, .stat-card { box-shadow: none !important; border: 1px solid #ddd !important; }
             body { background: white !important; }
+            .app-content .container { background: white !important; backdrop-filter: none !important; }
         }
     </style>
 </head>
