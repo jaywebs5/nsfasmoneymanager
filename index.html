@@ -1,16 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-  <head>
-    <meta charset="UTF-8">
-    <title>Nsfas</title>
-    
-
-  </head>
-    
-  <body>
-  <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5, user-scalable=yes, viewport-fit=cover">
@@ -357,6 +346,10 @@
             padding: 40px 20px;
             background: linear-gradient(135deg, var(--primary-blue-dark), var(--primary-blue));
             position: relative;
+            background-image: url('https://i.postimg.cc/tR2Y4MSM/IMG-20260802-WA0040.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
         }
         .auth-page.active { display: flex; }
 
@@ -367,21 +360,29 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(2px);
             pointer-events: none;
         }
 
         .auth-box {
-            background: var(--white);
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(8px);
             border-radius: var(--radius);
             padding: 40px 35px;
             width: 100%;
             max-width: 460px;
             position: relative;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             animation: fadeInUp 0.6s ease;
             max-height: 95vh;
             overflow-y: auto;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        body.dark-mode .auth-box {
+            background: rgba(30, 41, 59, 0.92);
+            border-color: rgba(255,255,255,0.1);
         }
 
         /* ============================================
@@ -2252,8 +2253,8 @@
         <div class="auth-box">
             <div class="auth-logo">
                 <div class="logo-icon">
-                    
-                    <img src="https://i.postimg.cc/tT0DfHTL/Chat-GPT-Image-Jul-30-2026-06-44-02-PM.png" alt="NSFAS Logo">
+                    <!-- REPLACE WITH YOUR LOGO URL -->
+                    <img src="https://i.postimg.cc/5N9Tp4dr/IMG-20260512-WA0002.jpg" alt="NSFAS Logo">
                 </div>
                 <h1>NSFAS Money Manager</h1>
                 <p>Smart student finance</p>
@@ -5242,8 +5243,4 @@
     </script>
 
 </body>
-</html>
-    
-  </body>
-  
 </html>
