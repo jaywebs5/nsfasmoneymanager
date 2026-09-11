@@ -13,10 +13,10 @@
     <meta property="og:title" content="NSFAS Money Manager — Student Finance Platform">
     <meta property="og:description" content="Track your NSFAS allowance, plan budgets, record expenses and reach your savings goals.">
     <meta property="og:url" content="https://nsfasmoney.netlify.app/">
-    <meta property="og:image" content="https://i.postimg.cc/6Q046q0z/moneymanager.png">
+    <meta property="og:image" content="./moneymanager.png">
     <meta name="twitter:card" content="summary_large_image">
 
-    <link rel="icon" type="image/png" href="https://i.postimg.cc/6Q046q0z/moneymanager.png">
+    <link rel="icon" type="image/png" href="./moneymanager.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,19 +25,15 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <style>
-        /* ============================================================
-           SMU BRAND DESIGN TOKENS
-           ============================================================ */
         :root {
-            /* === SMU BRAND PALETTE === */
-            --smu-blue:         #0057A8;   /* Primary */
+            --smu-blue:         #0057A8;
             --smu-blue-dark:    #004080;
             --smu-blue-deep:    #003366;
-            --smu-orange:       #F58220;   /* Secondary */
+            --smu-orange:       #F58220;
             --smu-orange-dark:  #E06A0A;
             --smu-orange-light: #FEF3E7;
-            --smu-navy:         #0B2D4D;   /* Dark */
-            --smu-surface:      #F3F8FC;   /* Background surface */
+            --smu-navy:         #0B2D4D;
+            --smu-surface:      #F3F8FC;
             --smu-border:       #D9E2EC;
             --smu-text:         #1F2937;
             --smu-muted:        #64748B;
@@ -46,11 +42,9 @@
             --smu-error:        #D92D20;
             --smu-white:        #FFFFFF;
 
-            /* === SEMANTIC ALIASES USED THROUGHOUT === */
             --primary-blue:       #0057A8;
             --primary-blue-dark:  #004080;
             --primary-blue-light: #E8F0F7;
-
             --primary-green:       #F58220;
             --primary-green-dark:  #E06A0A;
             --primary-green-light: #FEF3E7;
@@ -58,7 +52,6 @@
             --success:        #16803C;
             --success-light:  #E7F4EC;
             --success-dark:   #0F5A2A;
-
             --warning:        #F59E0B;
             --error:          #D92D20;
             --info:           #0057A8;
@@ -106,9 +99,6 @@
             --font-numbers:   'Montserrat', 'Inter', sans-serif;
         }
 
-        /* ============================================================
-           RESET
-           ============================================================ */
         *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
 
@@ -139,9 +129,6 @@
         body.dark-mode ::-webkit-scrollbar-track { background: #1e293b; }
         body.dark-mode ::-webkit-scrollbar-thumb { background: #475569; border-color: #1e293b; }
 
-        /* ============================================================
-           LAYOUT
-           ============================================================ */
         .container { max-width: 1200px; margin: 0 auto; padding: 0 var(--space-6); }
         .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-6); }
         .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-5); }
@@ -153,9 +140,6 @@
         .text-center { text-align: center; }
         .w-full { width: 100%; }
 
-        /* ============================================================
-           TYPOGRAPHY
-           ============================================================ */
         .section-title {
             font-family: var(--font-primary);
             font-size: clamp(1.5rem, 3vw, 2rem);
@@ -175,9 +159,6 @@
         }
         body.dark-mode .section-subtitle { color: var(--gray-400); }
 
-        /* ============================================================
-           BUTTONS
-           ============================================================ */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -231,9 +212,6 @@
         .btn-lg { padding: 14px 30px; font-size: 1rem; border-radius: 14px; }
         .btn-block { width: 100%; }
 
-        /* ============================================================
-           BADGES
-           ============================================================ */
         .badge {
             display: inline-block;
             padding: 3px 10px;
@@ -255,9 +233,6 @@
             font-size: 0.62rem;
         }
 
-        /* ============================================================
-           CARDS
-           ============================================================ */
         .card {
             background: #fff;
             border-radius: var(--radius-lg);
@@ -285,9 +260,6 @@
             color: #cbd5e1;
         }
 
-        /* ============================================================
-           ANIMATIONS
-           ============================================================ */
         @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px);} to { opacity: 1; transform: translateY(0);} }
         @keyframes fadeIn   { from { opacity: 0;} to { opacity: 1;} }
         @keyframes floaty   { 0%,100% { transform: translateY(0);} 50% { transform: translateY(-10px);} }
@@ -311,14 +283,7 @@
             animation: shimmer 1.4s infinite;
             border-radius: 8px;
         }
-        body.dark-mode .skeleton {
-            background: linear-gradient(90deg, #0f2236 25%, #1e3a5f 50%, #0f2236 75%);
-            background-size: 200% 100%;
-        }
 
-        /* ============================================================
-           AUTH PAGES
-           ============================================================ */
         .auth-page {
             display: none;
             min-height: 100vh;
@@ -502,9 +467,6 @@
         .msg-error   { background: #FEE4E2; border: 1px solid #FCA5A5; color: #991B1B; }
         .msg-success { background: var(--success-light); border: 1px solid #86EFAC; color: var(--success-dark); }
 
-        /* ============================================================
-           LANDING PAGE
-           ============================================================ */
         .landing-page { display: none; min-height: 100vh; background: #fff; }
         .landing-page.active { display: block; }
         body.dark-mode .landing-page { background: #06182b; }
@@ -552,7 +514,6 @@
         }
         body.dark-mode .hamburger { color: #cbd5e1; }
 
-        /* HERO */
         .hero-section {
             padding: clamp(48px, 8vw, 90px) 0;
             background:
@@ -671,9 +632,6 @@
         .fc-3 .fc-icon { background: #FEF3C7; color: #B45309; }
         .fc-4 .fc-icon { background: var(--smu-orange-light); color: var(--smu-orange); }
 
-        /* ============================================================
-           SECTIONS
-           ============================================================ */
         .section { padding: clamp(48px, 7vw, 88px) 0; }
         .section-alt { background: var(--smu-surface); }
         body.dark-mode .section-alt { background: #0b1220; }
@@ -717,7 +675,6 @@
         body.dark-mode .feature-card h4 { color: #f1f5f9; }
         .feature-card p { color: var(--smu-muted); font-size: 0.9rem; line-height: 1.6; }
 
-        /* COMMUNITY */
         .community-layout {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -761,7 +718,6 @@
         .community-image img { width: 100%; height: 100%; object-fit: cover; }
         .community-image svg { width: 100%; height: 100%; }
 
-        /* TESTIMONIALS */
         .testimonial-card {
             background: var(--smu-surface);
             border-radius: var(--radius-lg);
@@ -791,7 +747,6 @@
         body.dark-mode .testimonial-card .author .name { color: #f1f5f9; }
         .testimonial-card .author .role { color: var(--smu-muted); font-size: 0.78rem; }
 
-        /* TEAM */
         .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-6); }
         .team-card {
             background: #fff; border-radius: var(--radius-lg);
@@ -836,7 +791,6 @@
         }
         .team-info p { color: var(--smu-muted); font-size: 0.85rem; line-height: 1.5; margin-top: auto; }
 
-        /* TIPS */
         .tip-card {
             background: #fff;
             border-radius: var(--radius-lg);
@@ -869,7 +823,6 @@
         body.dark-mode .tip-card h4 { color: #f1f5f9; }
         .tip-card p { color: var(--smu-muted); font-size: 0.88rem; line-height: 1.6; }
 
-        /* CTA */
         .cta-section {
             padding: clamp(56px, 8vw, 90px) 0;
             background: linear-gradient(135deg, var(--smu-blue), var(--smu-blue-deep));
@@ -901,7 +854,6 @@
         }
         .cta-section .btn { position: relative; z-index: 1; }
 
-        /* FOOTER */
         .site-footer {
             background: var(--smu-navy);
             color: rgba(255,255,255,0.72);
@@ -956,9 +908,6 @@
             color: rgba(255,255,255,0.55);
         }
 
-        /* ============================================================
-           APP CONTENT
-           ============================================================ */
         .app-content { display: none; min-height: 100vh; background: var(--smu-surface); }
         body.dark-mode .app-content { background: #06182b; }
         .app-content.active { display: block; }
@@ -1060,7 +1009,6 @@
         body.dark-mode .page-header h2 { color: #f1f5f9; }
         .page-header p { color: var(--smu-muted); font-size: 0.92rem; }
 
-        /* STAT CARDS */
         .stat-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
@@ -1105,7 +1053,6 @@
             margin-bottom: var(--space-6);
         }
 
-        /* AI COACH */
         .ai-coach-card {
             background: linear-gradient(135deg, var(--primary-blue-light), var(--smu-orange-light));
             border-radius: var(--radius-lg);
@@ -1143,7 +1090,6 @@
         }
         body.dark-mode .coach-tip { background: #0f2236; color: #cbd5e1; }
 
-        /* CHARTS */
         .chart-card {
             background: #fff;
             border-radius: var(--radius-lg);
@@ -1162,7 +1108,6 @@
         body.dark-mode .chart-card h4 { color: #f1f5f9; }
         .chart-card canvas { width: 100% !important; max-height: 300px; }
 
-        /* EMPTY STATE */
         .empty-state {
             text-align: center;
             padding: var(--space-10) var(--space-5);
@@ -1190,7 +1135,6 @@
             max-width: 340px; margin-left: auto; margin-right: auto;
         }
 
-        /* TRANSACTIONS */
         .transaction-list {
             background: #fff;
             border-radius: var(--radius-lg);
@@ -1237,7 +1181,6 @@
         }
         .transaction-item .del:hover { color: var(--smu-error); background: #FEE4E2; }
 
-        /* TABS */
         .tabs {
             display: flex; gap: 4px;
             background: var(--gray-100);
@@ -1261,7 +1204,6 @@
         .tabs button.active { background: #fff; color: var(--smu-blue); box-shadow: var(--shadow-xs); }
         body.dark-mode .tabs button.active { background: #1e3a5f; color: #FFB878; }
 
-        /* FORM */
         .form-card {
             background: #fff;
             border-radius: var(--radius-lg);
@@ -1297,7 +1239,6 @@
             box-shadow: 0 0 0 3px rgba(0,87,168,0.13);
         }
 
-        /* BUDGET */
         .budget-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1347,7 +1288,6 @@
             font-size: 0.78rem; color: var(--smu-muted);
         }
 
-        /* GOALS */
         .goal-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1394,7 +1334,6 @@
             margin-top: 10px;
         }
 
-        /* PROFILE */
         .profile-card {
             background: #fff;
             border-radius: var(--radius-lg);
@@ -1451,7 +1390,6 @@
             box-shadow: 0 0 0 3px rgba(0,87,168,0.13);
         }
 
-        /* MODAL */
         .modal-overlay {
             display: none;
             position: fixed; inset: 0;
@@ -1524,7 +1462,6 @@
             background: rgba(245,130,32,0.18); color: #FFB878;
         }
 
-        /* CHATBOT */
         .chat-fab {
             position: fixed; bottom: 22px; right: 22px;
             width: 54px; height: 54px; border-radius: 50%;
@@ -1539,8 +1476,8 @@
         .chat-fab:hover { transform: scale(1.06); background: var(--smu-blue-dark); }
         .chat-panel {
             position: fixed; bottom: 84px; right: 22px;
-            width: 360px; max-width: calc(100vw - 32px);
-            max-height: 500px;
+            width: 380px; max-width: calc(100vw - 32px);
+            max-height: 520px;
             background: #fff;
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow-lg);
@@ -1560,14 +1497,15 @@
             background: none; border: none; color: #fff;
             font-size: 20px; cursor: pointer;
         }
-        .chat-body { flex: 1; padding: 16px; overflow-y: auto; max-height: 320px; }
+        .chat-body { flex: 1; padding: 16px; overflow-y: auto; max-height: 340px; }
         .chat-msg {
-            max-width: 85%;
+            max-width: 88%;
             padding: 9px 13px;
             border-radius: 12px;
             font-size: 0.86rem;
             margin-bottom: 10px;
             line-height: 1.5;
+            white-space: pre-line;
         }
         .chat-msg.user {
             background: var(--smu-blue); color: #fff;
@@ -1578,6 +1516,29 @@
             border-bottom-left-radius: 3px;
         }
         body.dark-mode .chat-msg.bot { background: #1e3a5f; color: #e2e8f0; }
+        .chat-suggestions {
+            display: flex; flex-wrap: wrap; gap: 6px;
+            padding: 0 14px 12px;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        body.dark-mode .chat-suggestions { border-color: #1e3a5f; }
+        .chat-suggestions button {
+            background: var(--primary-blue-light);
+            color: var(--smu-blue);
+            border: none;
+            padding: 5px 11px;
+            border-radius: 20px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            font-family: var(--font-primary);
+        }
+        .chat-suggestions button:hover { background: var(--smu-blue); color: #fff; }
+        body.dark-mode .chat-suggestions button {
+            background: rgba(0,87,168,0.25); color: #FFB878;
+        }
+        body.dark-mode .chat-suggestions button:hover { background: var(--smu-orange); color: #fff; }
         .chat-input-row {
             display: flex; gap: 8px;
             padding: 12px;
@@ -1600,7 +1561,6 @@
         }
         .chat-input-row button:hover { background: var(--smu-orange-dark); }
 
-        /* TOAST */
         .toast {
             position: fixed;
             bottom: 24px; left: 50%;
@@ -1620,7 +1580,6 @@
         .toast.success { background: var(--smu-success); }
         .toast.error   { background: var(--smu-error); }
 
-        /* DISCLAIMER */
         .disclaimer {
             background: var(--smu-surface);
             border-left: 3px solid var(--smu-blue);
@@ -1633,7 +1592,6 @@
         }
         body.dark-mode .disclaimer { background: rgba(15,34,54,0.6); color: #94a3b8; }
 
-        /* RESPONSIVE */
         @media (max-width: 1024px) {
             .hero-section .container { grid-template-columns: 1fr; text-align: center; }
             .hero-content > p { margin-left: auto; margin-right: auto; }
@@ -1731,7 +1689,8 @@
         <div class="auth-box">
             <div class="auth-logo">
                 <div class="logo-icon">
-                    <img src="https://i.postimg.cc/6Q046q0z/moneymanager.png" alt="NSFAS Money Manager">
+                    <img src="./moneymanager.png" alt="NSFAS Money Manager"
+                         onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-coins\' style=\'color:var(--smu-blue);font-size:1.6em;\'></i>';">
                 </div>
                 <h1>NSFAS Money Manager</h1>
                 <p>Smart student finance</p>
@@ -1786,7 +1745,8 @@
         <div class="auth-box">
             <div class="auth-logo">
                 <div class="logo-icon">
-                    <img src="https://i.postimg.cc/6Q046q0z/moneymanager.png" alt="NSFAS Money Manager">
+                    <img src="./moneymanager.png" alt="NSFAS Money Manager"
+                         onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-coins\' style=\'color:var(--smu-blue);font-size:1.6em;\'></i>';">
                 </div>
                 <h1>NSFAS Money Manager</h1>
                 <p>Smart student finance</p>
@@ -1855,7 +1815,8 @@
         <div class="container">
             <a href="#" class="brand" onclick="return false;">
                 <div class="logo-icon">
-                    <img src="https://i.postimg.cc/6Q046q0z/moneymanager.png" alt="NSFAS Money Manager">
+                    <img src="./moneymanager.png" alt="NSFAS Money Manager"
+                         onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-coins\' style=\'color:var(--smu-blue);font-size:1.4em;\'></i>';">
                 </div>
                 <h1>NSFAS<span>Money</span></h1>
             </a>
@@ -1871,7 +1832,6 @@
         </div>
     </nav>
 
-    <!-- HERO -->
     <section class="hero-section">
         <div class="container">
             <div class="hero-content">
@@ -1934,7 +1894,6 @@
         </div>
     </section>
 
-    <!-- FEATURES -->
     <section class="section section-alt" id="features">
         <div class="container">
             <div class="section-header">
@@ -1976,7 +1935,6 @@
         </div>
     </section>
 
-    <!-- COMMUNITY -->
     <section class="section" id="community">
         <div class="container">
             <div class="community-layout">
@@ -1995,7 +1953,6 @@
         </div>
     </section>
 
-    <!-- TESTIMONIALS -->
     <section class="section section-alt">
         <div class="container">
             <div class="section-header">
@@ -2034,7 +1991,6 @@
         </div>
     </section>
 
-    <!-- TIPS -->
     <section class="section" id="tips">
         <div class="container">
             <div class="section-header">
@@ -2076,7 +2032,6 @@
         </div>
     </section>
 
-    <!-- TEAM -->
     <section class="section section-alt" id="team">
         <div class="container">
             <div class="section-header">
@@ -2136,7 +2091,6 @@
         </div>
     </section>
 
-    <!-- CTA -->
     <section class="cta-section">
         <div class="container">
             <h2>Start managing your money today</h2>
@@ -2145,14 +2099,14 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-grid">
                 <div>
                     <div class="footer-brand">
                         <div class="logo-icon">
-                            <img src="https://i.postimg.cc/6Q046q0z/moneymanager.png" alt="NSFAS Money Manager">
+                            <img src="./moneymanager.png" alt="NSFAS Money Manager"
+                                 onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-coins\' style=\'color:var(--smu-blue);font-size:1.3em;\'></i>';">
                         </div>
                         <h4>NSFAS Money Manager</h4>
                     </div>
@@ -2203,7 +2157,8 @@
         <div class="container">
             <a href="#" class="brand" onclick="navigateTo('dashboard'); return false;">
                 <div class="logo-icon">
-                    <img src="https://i.postimg.cc/6Q046q0z/moneymanager.png" alt="NSFAS Money Manager">
+                    <img src="./moneymanager.png" alt="NSFAS Money Manager"
+                         onerror="this.style.display='none';this.parentElement.innerHTML='<i class=\'fas fa-coins\' style=\'color:var(--smu-blue);font-size:1.3em;\'></i>';">
                 </div>
                 <h1>NSFAS<span>Money</span></h1>
             </a>
@@ -2235,7 +2190,6 @@
 
     <div class="app-container">
 
-        <!-- DASHBOARD -->
         <div class="page-section active" id="page-dashboard">
             <div class="page-header">
                 <h2>Welcome back, <span id="dashUserName">Student</span></h2>
@@ -2307,7 +2261,6 @@
             </div>
         </div>
 
-        <!-- WALLET -->
         <div class="page-section" id="page-wallet">
             <div class="page-header">
                 <h2>Digital wallet</h2>
@@ -2377,7 +2330,6 @@
             </div>
         </div>
 
-        <!-- EXPENSES -->
         <div class="page-section" id="page-expenses">
             <div class="page-header">
                 <h2>Expense tracker</h2>
@@ -2437,7 +2389,6 @@
             </div>
         </div>
 
-        <!-- BUDGET -->
         <div class="page-section" id="page-budget">
             <div class="page-header">
                 <h2>Budget planner</h2>
@@ -2482,7 +2433,6 @@
             </div>
         </div>
 
-        <!-- GOALS -->
         <div class="page-section" id="page-goals">
             <div class="page-header">
                 <h2>Savings goals</h2>
@@ -2511,7 +2461,6 @@
             <div class="goal-grid" id="goalsGrid"></div>
         </div>
 
-        <!-- ANALYTICS -->
         <div class="page-section" id="page-analytics">
             <div class="page-header">
                 <h2>Spending analytics</h2>
@@ -2548,7 +2497,6 @@
             </div>
         </div>
 
-        <!-- REPORTS -->
         <div class="page-section" id="page-reports">
             <div class="page-header">
                 <h2>Reports</h2>
@@ -2597,7 +2545,6 @@
             </div>
         </div>
 
-        <!-- PROFILE -->
         <div class="page-section" id="page-profile">
             <div class="page-header">
                 <h2>My profile</h2>
@@ -2687,7 +2634,15 @@
         <button onclick="toggleChatbot()" aria-label="Close">&times;</button>
     </div>
     <div class="chat-body" id="chatMessages">
-        <div class="chat-msg bot">Hi! I can help you understand budgeting, saving, and how to use the app. I only know what you've logged here.</div>
+        <div class="chat-msg bot">Hi! I'm your NSFAS Money Manager assistant. I can answer questions about your balance, spending, budget and savings — using your real data. Try one of the suggestions below.</div>
+    </div>
+    <div class="chat-suggestions" id="chatSuggestions">
+        <button onclick="quickChat('What is my balance?')">My balance</button>
+        <button onclick="quickChat('How much did I spend on food?')">Food spending</button>
+        <button onclick="quickChat('Am I over budget?')">Budget status</button>
+        <button onclick="quickChat('How much have I saved?')">My savings</button>
+        <button onclick="quickChat('How are my goals?')">Goals</button>
+        <button onclick="quickChat('What is the 50/30/20 rule?')">50/30/20 rule</button>
     </div>
     <div class="chat-input-row">
         <input type="text" id="chatInput" placeholder="Ask a question..." onkeypress="if(event.key==='Enter') sendChat()">
@@ -2766,8 +2721,7 @@
 
 <script>
 /* ============================================================
-   IMAGE CONFIGURATION — replace URLs with your own images.
-   Empty strings fall back to built-in SVG illustrations.
+   IMAGE CONFIGURATION
    ============================================================ */
 const IMAGE_URLS = {
     hero:               "",
@@ -3016,7 +2970,6 @@ function handleRegister(e) {
         err.classList.add('show'); return false;
     }
 
-    // NEW USER — starts with ZERO financial data
     const newUser = {
         id: 'u_' + Date.now() + '_' + Math.random().toString(36).slice(2,8),
         firstName: fn, lastName: ln, studentNumber: sn, email: em, phone: ph,
@@ -3894,43 +3847,278 @@ if (localStorage.getItem('nsfas_dark_mode') === 'true') {
     if (slider) slider.style.background = '#F58220';
 }
 
-/* CHATBOT */
-function toggleChatbot() { document.getElementById('chatPanel').classList.toggle('open'); }
+/* ============================================================
+   CHATBOT — intent-based assistant that reads real user data
+   ============================================================ */
+
+const CHAT_INTENTS = [
+    { name: 'greeting',         weight: 3, keywords: ['hi', 'hello', 'hey', 'howzit', 'greetings', 'good morning', 'good afternoon', 'good evening'] },
+    { name: 'thanks',           weight: 3, keywords: ['thank', 'thanks', 'thx', 'appreciate'] },
+    { name: 'bye',              weight: 3, keywords: ['bye', 'goodbye', 'see you', 'good night'] },
+
+    { name: 'balance',          weight: 5, keywords: ['balance', 'how much do i have', 'how much money do i have', 'money left', 'current balance', 'available balance', 'how much is in my account'] },
+    { name: 'income',           weight: 4, keywords: ['income', 'earned', 'received', 'how much did i receive', 'how much did i earn', 'total income', 'my income'] },
+    { name: 'expenses',         weight: 3, keywords: ['expense', 'expenses', 'spent', 'spend', 'spending', 'total expenses', 'how much did i spend'] },
+    { name: 'top_spending',     weight: 5, keywords: ['top category', 'biggest', 'where is my money going', 'where does my money go', 'where did my money go', 'highest spending', 'most spent'] },
+    { name: 'budget_status',    weight: 6, keywords: ['over budget', 'under budget', 'budget left', 'budget remaining', 'am i over budget', 'am i under budget', 'how much is left in my budget', 'remaining budget', 'budget status'] },
+    { name: 'budget',           weight: 4, keywords: ['budget', 'budgeting', 'monthly budget'] },
+    { name: 'savings',          weight: 4, keywords: ['saving', 'savings', 'saved', 'how much have i saved', 'total savings'] },
+    { name: 'goal_progress',    weight: 5, keywords: ['goal progress', 'how is my goal', 'progress on my goal', 'how are my goals', 'goal status', 'how much for my goal'] },
+    { name: 'goals',            weight: 4, keywords: ['goal', 'goals', 'my goals', 'active goals'] },
+
+    { name: 'rule_503020',      weight: 7, keywords: ['50/30/20', '50 30 20', '50-30-20', '503020', '50/30/20 rule'] },
+    { name: 'emergency',        weight: 6, keywords: ['emergency', 'emergency fund', 'emergency savings'] },
+    { name: 'tip_save',         weight: 5, keywords: ['how can i save', 'how to save', 'saving tip', 'saving tips', 'save money', 'tips to save', 'ways to save'] },
+    { name: 'student_discount', weight: 4, keywords: ['discount', 'discounts', 'student discount'] },
+
+    { name: 'help_add_money',   weight: 5, keywords: ['how do i add money', 'add money', 'add income', 'add allowance', 'record income'] },
+    { name: 'help_add_expense', weight: 5, keywords: ['how do i add an expense', 'add expense', 'log expense', 'record expense', 'how do i log'] },
+    { name: 'help_set_budget',  weight: 5, keywords: ['set a budget', 'set budget', 'how do i budget', 'create a budget', 'how to set a budget'] },
+    { name: 'help_create_goal', weight: 5, keywords: ['create goal', 'create a goal', 'add goal', 'new goal', 'set a goal', 'how do i set a goal'] },
+    { name: 'help_profile',     weight: 5, keywords: ['profile picture', 'upload photo', 'change photo', 'avatar', 'profile photo'] }
+];
+
+const REPLY_TIPS_SAVE = `Here are five tried-and-tested student saving tips:
+1. Follow the 50/30/20 rule — 50% needs, 30% wants, 20% savings.
+2. Log every small purchase — they add up faster than you think.
+3. Plan meals and cook in batches instead of buying takeaways.
+4. Use your student card everywhere — discounts are often 10–20%.
+5. Put a slice of every allowance into savings the day it arrives.`;
+
+const REPLY_RULE_503020 = `The 50/30/20 rule splits your income:
+• 50% to needs (rent, food, transport, data)
+• 30% to wants (entertainment, eating out, shopping)
+• 20% to savings
+
+Example: on a R4,500 allowance that's R2,250 needs, R1,350 wants and R900 savings. You can set these as budget categories in the Budget tab.`;
+
+const REPLY_EMERGENCY = `An emergency fund is money set aside for the unexpected — a broken phone, medical costs, or a missed allowance. Aim for at least 3 months of essential expenses, but start small: R200–R500 per month is a great habit. Create a goal called "Emergency fund" in the Goals tab.`;
+
+const KNOWN_CATEGORIES = ['Food', 'Transport', 'Accommodation', 'Data', 'Education', 'Entertainment', 'Shopping', 'Other'];
+
+function extractCategory(message) {
+    const msg = message.toLowerCase();
+    for (const c of KNOWN_CATEGORIES) {
+        if (msg.includes(c.toLowerCase())) return c;
+    }
+    if (/\b(food|eat|meal|meals|groceries|grocery|takeaway|takeaways|hungry|kota)\b/i.test(message)) return 'Food';
+    if (/\b(transport|travel|taxi|bus|uber|bolt|ride|rides|petrol|fuel|train)\b/i.test(message)) return 'Transport';
+    if (/\b(rent|accommodation|housing|res|residence|dorm)\b/i.test(message)) return 'Accommodation';
+    if (/\b(data|airtime|wifi|internet|phone|cell|cellular)\b/i.test(message)) return 'Data';
+    if (/\b(book|books|education|tuition|textbook|textbooks|stationery|course)\b/i.test(message)) return 'Education';
+    if (/\b(entertainment|movie|movies|party|parties|game|games|netflix|spotify|fun)\b/i.test(message)) return 'Entertainment';
+    if (/\b(shopping|shop|shops|clothes|clothing|shoes|outfit)\b/i.test(message)) return 'Shopping';
+    return null;
+}
+
+function getChatContext() {
+    const user = window.currentUser;
+    if (!user) return null;
+    const tx = user.transactions || [];
+    const incomeTx = tx.filter(t => t.type === 'income');
+    const expenseTx = tx.filter(t => t.type === 'expense');
+    const totalIncome  = incomeTx.reduce((s, t) => s + t.amount, 0);
+    const totalExpenses = expenseTx.reduce((s, t) => s + t.amount, 0);
+    const byCategory = {};
+    expenseTx.forEach(t => {
+        const c = t.category || 'Other';
+        byCategory[c] = (byCategory[c] || 0) + t.amount;
+    });
+    const topCategory = Object.entries(byCategory).sort((a, b) => b[1] - a[1])[0] || null;
+    return {
+        user, tx, incomeTx, expenseTx,
+        totalIncome, totalExpenses,
+        balance: totalIncome - totalExpenses,
+        byCategory, topCategory,
+        budget:  user.monthlyBudget || 0,
+        savings: user.savings || 0,
+        goals:   user.goals || [],
+        budgetCategories: user.budgetCategories || []
+    };
+}
+
+function matchChatIntent(rawMessage) {
+    const msg = rawMessage.toLowerCase();
+    const cat = extractCategory(rawMessage);
+    const hasSpendWord = /\b(spend|spent|spending|cost|costs|paid|pay|on)\b/.test(msg);
+    if (cat && hasSpendWord) {
+        return { name: 'category_spend', score: 100, category: cat };
+    }
+    let best = { name: 'fallback', score: 0, intent: null };
+    for (const intent of CHAT_INTENTS) {
+        let score = 0;
+        for (const kw of intent.keywords) {
+            if (msg.includes(kw)) score += intent.weight;
+        }
+        if (score > best.score) best = { name: intent.name, score, intent };
+    }
+    return best;
+}
+
+function buildChatReply(userMessage) {
+    const match = matchChatIntent(userMessage);
+    const ctx = getChatContext();
+
+    if (match.name === 'greeting') {
+        const name = ctx && ctx.user.firstName ? ctx.user.firstName : 'there';
+        return 'Hi ' + name + '! What would you like to check — your balance, spending, budget, or savings?';
+    }
+    if (match.name === 'thanks') return "You're welcome! Anything else you'd like to know?";
+    if (match.name === 'bye')    return 'Goodbye! Remember to log your expenses as they happen.';
+    if (match.name === 'rule_503020') return REPLY_RULE_503020;
+    if (match.name === 'emergency')   return REPLY_EMERGENCY;
+    if (match.name === 'tip_save')    return REPLY_TIPS_SAVE;
+    if (match.name === 'student_discount') {
+        return "Always carry your student card. You can often get 10–20% off at bookshops, cinemas, some restaurants, and on transport. Ask before you pay — most places don't advertise it.";
+    }
+    if (match.name === 'help_add_money')
+        return 'To add money: open the Wallet tab (or tap "Add money" on the dashboard), enter the amount, choose the source (e.g. NSFAS allowance), and tap "Add to wallet".';
+    if (match.name === 'help_add_expense')
+        return 'To log an expense: go to the Expenses tab, fill in the description, amount and category, and tap "Add". You can also use "Add expense" from the dashboard.';
+    if (match.name === 'help_set_budget')
+        return 'To set a budget: go to the Budget tab, enter your total monthly allowance and tap "Set budget". Then add category budgets (Food, Transport, etc.) below.';
+    if (match.name === 'help_create_goal')
+        return 'To create a savings goal: go to the Goals tab, fill in the goal name, target amount and (optionally) a deadline, then tap "Create".';
+    if (match.name === 'help_profile')
+        return 'To change your profile picture: open the Profile tab and tap "Upload photo". Your picture will appear in the navbar too.';
+
+    if (!ctx) {
+        return "Sign in to your NSFAS Money Manager account and I can answer questions about your balance, spending, budget and savings.";
+    }
+
+    const money = n => 'R' + Number(n || 0).toFixed(2);
+
+    switch (match.name) {
+        case 'balance':
+            if (ctx.tx.length === 0) {
+                return "You haven't logged any transactions yet, so your balance is R0.00. Tap \"Add money\" on the Wallet page to record your first income.";
+            }
+            return 'Your current balance is ' + money(ctx.balance) +
+                   ' (' + money(ctx.totalIncome) + ' income − ' + money(ctx.totalExpenses) + ' expenses).';
+
+        case 'income':
+            if (ctx.totalIncome === 0)
+                return "You haven't logged any income yet. Add your NSFAS allowance or other income via \"Add money\" on the Wallet page.";
+            return "You've received " + money(ctx.totalIncome) + ' in total across ' +
+                   ctx.incomeTx.length + ' income transaction' + (ctx.incomeTx.length === 1 ? '' : 's') + '.';
+
+        case 'expenses':
+            if (ctx.expenseTx.length === 0)
+                return "You haven't recorded any expenses yet. Use \"Add expense\" on the Expenses page to log your first one.";
+            return "You've logged " + money(ctx.totalExpenses) + ' in expenses across ' +
+                   ctx.expenseTx.length + ' transaction' + (ctx.expenseTx.length === 1 ? '' : 's') + '.';
+
+        case 'category_spend': {
+            const category = match.category;
+            const amt = ctx.byCategory[category] || 0;
+            if (amt === 0) return "You haven't logged any " + category + ' expenses yet.';
+            const pct = ctx.totalExpenses > 0 ? Math.round((amt / ctx.totalExpenses) * 100) : 0;
+            return "You've spent " + money(amt) + ' on ' + category +
+                   ' — that\'s ' + pct + '% of your total spending.';
+        }
+
+        case 'top_spending': {
+            if (!ctx.topCategory)
+                return "You haven't logged any expenses yet, so I can't tell you where your money is going.";
+            const [cat, amt] = ctx.topCategory;
+            const pct = ctx.totalExpenses > 0 ? Math.round((amt / ctx.totalExpenses) * 100) : 0;
+            return 'Your biggest spending category is ' + cat + ' at ' + money(amt) +
+                   ' (' + pct + '% of your expenses).';
+        }
+
+        case 'budget_status': {
+            if (ctx.budget <= 0)
+                return "You haven't set a monthly budget yet. Set one in the Budget tab and I can tell you how you're tracking.";
+            const pct = Math.round((ctx.totalExpenses / ctx.budget) * 100);
+            const left = ctx.budget - ctx.totalExpenses;
+            if (pct < 50)  return 'You\'re well within budget — only ' + pct + '% used. You have ' + money(left) + ' left this month.';
+            if (pct < 80)  return 'You\'re ' + pct + '% through your budget. ' + money(left) + ' remaining.';
+            if (pct < 100) return 'Careful — you\'re at ' + pct + '% of your budget. Only ' + money(left) + ' left.';
+            return 'You\'re at ' + pct + '% of budget — that\'s over by ' + money(Math.abs(left)) +
+                   '. Try to pause non-essential spending until your next allowance.';
+        }
+
+        case 'budget': {
+            if (ctx.budget <= 0)
+                return "You haven't set a monthly budget yet. Go to the Budget tab and set your monthly allowance to start tracking.";
+            return 'Your monthly budget is ' + money(ctx.budget) + '. You\'ve used ' + money(ctx.totalExpenses) +
+                   ', leaving ' + money(Math.max(0, ctx.budget - ctx.totalExpenses)) + '.';
+        }
+
+        case 'savings':
+            if (ctx.savings <= 0)
+                return "You haven't tracked any savings yet. Create a goal in the Goals tab and start putting money aside.";
+            return 'You\'ve tracked ' + money(ctx.savings) + ' in savings so far.' +
+                   (ctx.goals.length > 0
+                       ? ' You have ' + ctx.goals.length + ' active goal' + (ctx.goals.length === 1 ? '' : 's') + '.'
+                       : '');
+
+        case 'goal_progress': {
+            if (ctx.goals.length === 0)
+                return "You don't have any savings goals yet. Create one in the Goals tab first.";
+            const lines = ctx.goals.map(g => {
+                const pct = g.target > 0 ? Math.min(Math.round((ctx.savings / g.target) * 100), 100) : 0;
+                return '• ' + g.name + ': ' + pct + '% (' +
+                       money(Math.min(ctx.savings, g.target)) + ' of ' + money(g.target) + ')';
+            });
+            return 'Here\'s your goal progress:\n' + lines.join('\n');
+        }
+
+        case 'goals':
+            if (ctx.goals.length === 0)
+                return "You haven't created any savings goals yet. Go to the Goals tab to create one — for example, a laptop fund.";
+            return 'You have ' + ctx.goals.length + ' goal' + (ctx.goals.length === 1 ? '' : 's') + ': ' +
+                   ctx.goals.map(g => g.name + ' (' + money(g.target) + ')').join(', ') + '.';
+
+        default:
+            return 'I\'m not sure I understood that. I can help with:\n' +
+                   '• Your balance, income or expenses\n' +
+                   '• Spending on a category (e.g. "how much did I spend on food?")\n' +
+                   '• Your budget and how much is left\n' +
+                   '• Your savings and goals\n' +
+                   '• Money tips like the 50/30/20 rule\n' +
+                   'Try asking one of those.';
+    }
+}
+
+function toggleChatbot() {
+    document.getElementById('chatPanel').classList.toggle('open');
+}
+
+function quickChat(text) {
+    const input = document.getElementById('chatInput');
+    input.value = text;
+    sendChat();
+}
+
 function sendChat() {
     const input = document.getElementById('chatInput');
     const msg = input.value.trim();
     if (!msg) return;
+
     const messages = document.getElementById('chatMessages');
+
     const userMsg = document.createElement('div');
     userMsg.className = 'chat-msg user';
     userMsg.textContent = msg;
     messages.appendChild(userMsg);
     input.value = '';
     messages.scrollTop = messages.scrollHeight;
+
+    const typing = document.createElement('div');
+    typing.className = 'chat-msg bot';
+    typing.textContent = '…';
+    messages.appendChild(typing);
+    messages.scrollTop = messages.scrollHeight;
+
     setTimeout(() => {
+        typing.remove();
         const botMsg = document.createElement('div');
         botMsg.className = 'chat-msg bot';
-        const user = window.currentUser;
-        const txCount = user ? (user.transactions || []).length : 0;
-        const lower = msg.toLowerCase();
-        let reply;
-        if (txCount === 0) {
-            reply = "I don't see any transactions yet. Add your first income or expense and I can give more useful guidance.";
-        } else if (lower.includes('save') || lower.includes('saving')) {
-            reply = 'A good starting point is to save at least 10% of every income you receive. Set a goal in the Goals tab and track your progress.';
-        } else if (lower.includes('budget')) {
-            reply = "Set a monthly budget in the Budget tab, then add category budgets like Food or Transport. I'll warn you as you approach each limit.";
-        } else if (lower.includes('spend') || lower.includes('expense')) {
-            reply = 'Log every expense — even small ones. You can see the breakdown in the Analytics tab.';
-        } else if (lower.includes('nsfas') || lower.includes('allowance')) {
-            reply = 'When your NSFAS allowance arrives, add it via "Add money" and choose "NSFAS allowance" as the source. It will update your balance and history.';
-        } else {
-            reply = 'I can help with budgeting, saving, expenses, and understanding your NSFAS allowance. Ask me about any of those topics.';
-        }
-        botMsg.textContent = reply;
+        botMsg.textContent = buildChatReply(msg);
         messages.appendChild(botMsg);
         messages.scrollTop = messages.scrollHeight;
-    }, 500);
+    }, 350);
 }
 
 /* INIT */
@@ -3978,7 +4166,7 @@ Object.assign(window, {
     saveProfileChanges, handleProfilePictureUpload, removeProfilePicture,
     generateReport, openModal, closeModal,
     toggleDarkMode, showNotifications,
-    toggleChatbot, sendChat
+    toggleChatbot, sendChat, quickChat
 });
 </script>
 
